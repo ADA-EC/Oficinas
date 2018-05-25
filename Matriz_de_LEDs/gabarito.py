@@ -13,7 +13,7 @@ class MatrizLed():
         self.col = {0: 19, 1: 13, 2: 16, 3: 22, 4: 20, 5: 10, 6: 2, 7: 5}
         # Delay de varredura do display
         self.delay_var = delay_var
-        
+
         ## Configuracao das GPIOs
         GPIO.setwarnings(False) # desabilita warnings
         GPIO.setmode(GPIO.BCM) # seta a numeracao dos pinos como BCM
@@ -75,7 +75,7 @@ class MatrizLed():
 
     def escreve(self, msg, ms=1000):
         for letra in msg:
-            self.pinta(M.tela[letra], ms)
+            self.pinta(self.tela[letra], ms)
 
     def pinta_scroll(self, tela, ms=250):
         tela1 = deepcopy(self.tela[' '])
@@ -91,11 +91,10 @@ class MatrizLed():
 
     def escreve_scroll(self, msg, ms=75):
         for letra in msg:
-            self.pinta_scroll(M.tela[letra], ms)
+            self.pinta_scroll(self.tela[letra], ms)
 
 if __name__ == '__main__':
     M = MatrizLed()
     while True:
         M.escreve("ADA ")
         M.escreve_scroll("ADA ")
-

@@ -75,7 +75,7 @@ class MatrizLed():
 
     def escreve(self, msg, ms=1000):
         for letra in msg:
-            self.pinta(M.tela[letra], ms)
+            self.pinta(self.tela[letra], ms)
 
     def pinta_scroll(self, tela, ms=250):
         """
